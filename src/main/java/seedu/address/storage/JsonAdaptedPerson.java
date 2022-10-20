@@ -10,13 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Attendance;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.PersonData;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,6 +23,9 @@ class JsonAdaptedPerson {
     private final String name;
     private final String phone;
     private final String email;
+    private final String StudentId;
+    private final String gitName;
+    private final String handle;
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
     private final List<JsonAdaptedAttendance> attended = new ArrayList<>();
@@ -38,12 +35,17 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-            @JsonProperty("attended") List<JsonAdaptedAttendance> attended) {
+                             @JsonProperty("email") String email, @JsonProperty("StudentId") String StudentId,
+                             @JsonProperty("gitName") String gitName, @JsonProperty("handle") String handle,
+                             @JsonProperty("address") String address,
+                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+                             @JsonProperty("attended") List<JsonAdaptedAttendance> attended) {
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.StudentId = StudentId;
+        this.gitName = gitName;
+        this.handle = handle;
         this.address = address;
         if (tagged != null) {
             this.tagged.addAll(tagged);
@@ -60,6 +62,9 @@ class JsonAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
+        StudentId = source.getId().value;
+        gitName = source.getGitName().value;
+        handle = source.getTeleHandle().value;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -109,6 +114,33 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
+        if (StudentId == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    StudentID.class.getSimpleName()));
+        }
+        if (!StudentID.isValidStudentID(StudentId)) {
+            throw new IllegalValueException(StudentID.MESSAGE_CONSTRAINTS);
+        }
+        final StudentID modelId = new StudentID(StudentId);
+
+        if (gitName == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    GitName.class.getSimpleName()));
+        }
+        if (!GitName.isValidGitName(gitName)) {
+            throw new IllegalValueException(GitName.MESSAGE_CONSTRAINTS);
+        }
+        final GitName modelGit = new GitName(gitName);
+
+        if (handle == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    TeleHandle.class.getSimpleName()));
+        }
+        if (!TeleHandle.isValidTeleHandle(handle)) {
+            throw new IllegalValueException(TeleHandle.MESSAGE_CONSTRAINTS);
+        }
+        final TeleHandle modelHandle = new TeleHandle(handle);
+
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
@@ -124,6 +156,9 @@ class JsonAdaptedPerson {
         personData.setName(modelName);
         personData.setPhone(modelPhone);
         personData.setEmail(modelEmail);
+        personData.setId(modelId);
+        personData.setGitUser(modelGit);
+        personData.setTeleHandle(modelHandle);
         personData.setAddress(modelAddress);
         personData.setTags(modelTags);
         personData.setAttendances(modelAttendances);

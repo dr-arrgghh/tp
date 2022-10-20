@@ -9,11 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Attendance;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -64,6 +60,33 @@ public class ParserUtil {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
         }
         return new Phone(trimmedPhone);
+    }
+
+    public static StudentID parseId(String id) throws ParseException {
+        requireNonNull(id);
+        String trimmedId = id.trim();
+        if (!StudentID.isValidStudentID(trimmedId)) {
+            throw new ParseException(StudentID.MESSAGE_CONSTRAINTS);
+        }
+        return new StudentID(trimmedId);
+    }
+
+    public static GitName parseGitName(String gitName) throws ParseException {
+        requireNonNull(gitName);
+        String trimmedGit = gitName.trim();
+        if (!GitName.isValidGitName(trimmedGit)) {
+            throw new ParseException(GitName.MESSAGE_CONSTRAINTS);
+        }
+        return new GitName(trimmedGit);
+    }
+
+    public static TeleHandle parseHandle(String handle) throws ParseException {
+        requireNonNull(handle);
+        String trimmedHandle = handle.trim();
+        if (!TeleHandle.isValidTeleHandle(trimmedHandle)) {
+            throw new ParseException(TeleHandle.MESSAGE_CONSTRAINTS);
+        }
+        return new TeleHandle(trimmedHandle);
     }
 
     /**

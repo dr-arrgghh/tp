@@ -13,11 +13,11 @@ public class TeleHandle {
 
     public TeleHandle(String handle) {
         requireNonNull(handle);
-        checkArgument(isValidStudentID(handle), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidTeleHandle(handle), MESSAGE_CONSTRAINTS);
         this.value = handle;
     }
 
-    public static boolean isValidStudentID(String test) {
+    public static boolean isValidTeleHandle(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 

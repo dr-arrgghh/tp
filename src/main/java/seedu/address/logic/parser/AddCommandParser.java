@@ -34,7 +34,8 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
                         PREFIX_ID, PREFIX_GIT, PREFIX_HANDLE,PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ID,
+                PREFIX_GIT, PREFIX_HANDLE, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
@@ -44,6 +45,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         personData.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         personData.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
         personData.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
+        personData.setId(ParserUtil.parseId(argMultimap.getValue(PREFIX_ID).get()));
+        personData.setGitUser(ParserUtil.parseGitName(argMultimap.getValue(PREFIX_GIT).get()));
+        personData.setTeleHandle(ParserUtil.parseHandle(argMultimap.getValue(PREFIX_HANDLE).get()));
         personData.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         personData.setTags(ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG)));
 

@@ -60,6 +60,9 @@ public class MarkCommand extends Command {
         personData.setPhone(personToEdit.getPhone());
         personData.setEmail(personToEdit.getEmail());
         personData.setAddress(personToEdit.getAddress());
+        personData.setId(personToEdit.getId());
+        personData.setTeleHandle(personToEdit.getTeleHandle());
+        personData.setGitUser(personToEdit.getGitName());
         personData.setTags(personToEdit.getTags());
 
         Set<Attendance> newAttendance = new HashSet<>(personToEdit.getAttendances());

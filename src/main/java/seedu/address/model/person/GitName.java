@@ -13,11 +13,11 @@ public class GitName {
 
     public GitName(String username) {
         requireNonNull(username);
-        checkArgument(isValidStudentID(username), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidGitName(username), MESSAGE_CONSTRAINTS);
         this.value = username;
     }
 
-    public static boolean isValidStudentID(String test) {
+    public static boolean isValidGitName(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 

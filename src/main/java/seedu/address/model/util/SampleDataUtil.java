@@ -7,13 +7,7 @@ import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Attendance;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.PersonData;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,6 +23,9 @@ public class SampleDataUtil {
         personData.setName(new Name("Alex Yeoh"));
         personData.setPhone(new Phone("87438807"));
         personData.setEmail(new Email("alexyeoh@example.com"));
+        personData.setId(new StudentID("A1234567A"));
+        personData.setGitUser(new GitName("user1"));
+        personData.setTeleHandle(new TeleHandle("@user1"));
         personData.setAddress(new Address("Blk 30 Geylang Street 29, #06-40"));
         personData.setTags(getTagSet("friends"));
         personData.setAttendances(getAttendedSet("T01", "T02"));
@@ -39,6 +36,9 @@ public class SampleDataUtil {
         personData.setName(new Name("Bernice Yu"));
         personData.setPhone(new Phone("99272758"));
         personData.setEmail(new Email("berniceyu@example.com"));
+        personData.setId(new StudentID("A1234567B"));
+        personData.setGitUser(new GitName("user2"));
+        personData.setTeleHandle(new TeleHandle("@user2"));
         personData.setAddress(new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"));
         personData.setTags(getTagSet("colleagues", "friends"));
         personDatas.add(personData);
@@ -47,6 +47,9 @@ public class SampleDataUtil {
         personData.setName(new Name("Charlotte Oliveiro"));
         personData.setPhone(new Phone("93210283"));
         personData.setEmail(new Email("charlotte@example.com"));
+        personData.setId(new StudentID("A1234567C"));
+        personData.setGitUser(new GitName("user3"));
+        personData.setTeleHandle(new TeleHandle("@user3"));
         personData.setAddress(new Address("Blk 11 Ang Mo Kio Street 74, #11-04"));
         personData.setTags(getTagSet("neighbours"));
         personDatas.add(personData);
@@ -55,6 +58,9 @@ public class SampleDataUtil {
         personData.setName(new Name("David Li"));
         personData.setPhone(new Phone("91031282"));
         personData.setEmail(new Email("lidavid@example.com"));
+        personData.setId(new StudentID("A1234567D"));
+        personData.setGitUser(new GitName("user4"));
+        personData.setTeleHandle(new TeleHandle("@user4"));
         personData.setAddress(new Address("Blk 436 Serangoon Gardens Street 26, #16-43"));
         personData.setTags(getTagSet("family"));
         personDatas.add(personData);
@@ -63,6 +69,9 @@ public class SampleDataUtil {
         personData.setName(new Name("Irfan Ibrahim"));
         personData.setPhone(new Phone("92492021"));
         personData.setEmail(new Email("irfan@example.com"));
+        personData.setId(new StudentID("A1234567E"));
+        personData.setGitUser(new GitName("user5"));
+        personData.setTeleHandle(new TeleHandle("@user5"));
         personData.setAddress(new Address("Blk 47 Tampines Street 20, #17-35"));
         personData.setTags(getTagSet("classmates"));
         personDatas.add(personData);
@@ -71,6 +80,9 @@ public class SampleDataUtil {
         personData.setName(new Name("Roy Balakrishnan"));
         personData.setPhone(new Phone("92624417"));
         personData.setEmail(new Email("royb@example.com"));
+        personData.setId(new StudentID("A1234567F"));
+        personData.setGitUser(new GitName("user6"));
+        personData.setTeleHandle(new TeleHandle("@user6"));
         personData.setAddress(new Address("Blk 45 Aljunied Street 85, #11-31"));
         personData.setTags(getTagSet("colleagues"));
         personDatas.add(personData);

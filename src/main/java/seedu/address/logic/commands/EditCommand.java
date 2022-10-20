@@ -19,13 +19,10 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.PersonData;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
+
+import javax.swing.text.html.Option;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -124,6 +121,9 @@ public class EditCommand extends Command {
         personData.setPhone(editPersonDescriptor.getPhone().orElse(personToEdit.getPhone()));
         personData.setEmail(editPersonDescriptor.getEmail().orElse(personToEdit.getEmail()));
         personData.setAddress(editPersonDescriptor.getAddress().orElse(personToEdit.getAddress()));
+        personData.setId(editPersonDescriptor.getId().orElse(personToEdit.getId()));
+        personData.setTeleHandle(editPersonDescriptor.getHandle().orElse(personToEdit.getTeleHandle()));
+        personData.setGitUser(editPersonDescriptor.getGitName().orElse(personToEdit.getGitName()));
         personData.setTags(editPersonDescriptor.getTags().orElse(personToEdit.getTags()));
         personData.setAttendances(personToEdit.getAttendances());
 
@@ -157,6 +157,9 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Address address;
+        private StudentID id;
+        private TeleHandle handle;
+        private GitName gitName;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -170,6 +173,9 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
+            setId(toCopy.id);
+            setHandle(toCopy.handle);
+            setGitName(toCopy.gitName);
             setTags(toCopy.tags);
         }
 
@@ -182,6 +188,30 @@ public class EditCommand extends Command {
 
         public void setName(Name name) {
             this.name = name;
+        }
+
+        public void setId(StudentID id) {
+            this.id = id;
+        }
+
+        public Optional<StudentID> getId() {
+            return Optional.ofNullable(id);
+        }
+
+        public void setHandle(TeleHandle handle) {
+            this.handle = handle;
+        }
+
+        public Optional<TeleHandle> getHandle() {
+            return Optional.ofNullable(handle);
+        }
+
+        public void setGitName(GitName name) {
+            this.gitName = name;
+        }
+
+        public Optional<GitName> getGitName() {
+            return Optional.ofNullable(gitName);
         }
 
         public Optional<Name> getName() {
