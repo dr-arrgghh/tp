@@ -3,13 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Attendance;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.PersonData;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -22,10 +16,16 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_ID = "A1234567B";
+    public static final String DEFAULT_GIT = "GitUser";
+    public static final String DEFAULT_TELE = "@CS2103T";
 
     private Name name;
     private Phone phone;
     private Email email;
+    private StudentID id;
+    private GitName gitName;
+    private TeleHandle teleHandle;
     private Address address;
     private Set<Tag> tags;
     private Set<Attendance> attendances;
@@ -37,6 +37,9 @@ public class PersonBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
+        id = new StudentID(DEFAULT_ID);
+        gitName = new GitName(DEFAULT_GIT);
+        teleHandle = new TeleHandle(DEFAULT_TELE);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
         attendances = new HashSet<>();
@@ -50,6 +53,9 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        id = personToCopy.getId();
+        gitName = personToCopy.getGitName();
+        teleHandle = personToCopy.getTeleHandle();
         tags = new HashSet<>(personToCopy.getTags());
         attendances = new HashSet<>(personToCopy.getAttendances());
     }
@@ -117,6 +123,21 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withId(String id) {
+        this.id = new StudentID(id);
+        return this;
+    }
+
+    public PersonBuilder withGitName(String name) {
+        this.gitName = new GitName(name);
+        return this;
+    }
+
+    public PersonBuilder withTeleHandle(String teleHandle) {
+        this.teleHandle = new TeleHandle(teleHandle);
+        return this;
+    }
+
     /**
      * Builds the person using the given parameters.
      * @return New Person.
@@ -127,6 +148,9 @@ public class PersonBuilder {
         personData.setPhone(this.phone);
         personData.setEmail(this.email);
         personData.setAddress(this.address);
+        personData.setId(this.id);
+        personData.setGitUser(this.gitName);
+        personData.setTeleHandle(this.teleHandle);
         personData.setTags(this.tags);
         personData.setAttendances(this.attendances);
         return new Person(personData);

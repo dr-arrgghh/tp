@@ -21,6 +21,9 @@ public class Person {
     private final Email email;
 
     // Data fields
+    private final StudentID id;
+    private final TeleHandle teleHandle;
+    private final GitName gitName;
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final Set<Attendance> attendances = new HashSet<>();
@@ -32,16 +35,32 @@ public class Person {
      * @param personData PersonData parameter object.
      */
     public Person(PersonData personData) {
-        requireAllNonNull(personData.getName(), personData.getPhone(),
+        requireAllNonNull(personData.getId(), personData.getGitUser(),
+                personData.getTeleHandle(), personData.getName(), personData.getPhone(),
                 personData.getEmail(), personData.getAddress(),
                 personData.getTags(), personData.getAttendances());
 
+        this.id = personData.getId();
+        this.teleHandle = personData.getTeleHandle();
+        this.gitName = personData.getGitUser();
         this.name = personData.getName();
         this.phone = personData.getPhone();
         this.email = personData.getEmail();
         this.address = personData.getAddress();
         this.tags.addAll(personData.getTags());
         this.attendances.addAll(personData.getAttendances());
+    }
+
+    public StudentID getId() {
+        return id;
+    }
+
+    public GitName getGitName() {
+        return gitName;
+    }
+
+    public TeleHandle getTeleHandle() {
+        return teleHandle;
     }
 
     public Name getName() {
@@ -108,6 +127,9 @@ public class Person {
 
         Person otherPerson = (Person) other;
         return otherPerson.getName().equals(getName())
+                && otherPerson.getId().equals(getId())
+                && otherPerson.getGitName().equals(getGitName())
+                && otherPerson.getTeleHandle().equals(getTeleHandle())
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
@@ -118,14 +140,17 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, attendances);
+        return Objects.hash(id, gitName, teleHandle, name, phone, email, address, tags, attendances);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName()).append("; Phone: ").append(getPhone()).append("; Email: ")
-                .append(getEmail()).append("; Address: ").append(getAddress());
+                .append(getEmail()).append("; StudentID: ")
+                .append(getId()).append("; GitHub Username: ")
+                .append(getGitName()).append("; TeleHandle: ").append(getTeleHandle())
+                .append("; Address: ").append(getAddress());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {

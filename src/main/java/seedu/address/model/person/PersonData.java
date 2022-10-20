@@ -9,12 +9,39 @@ import seedu.address.model.tag.Tag;
  * A parameter object for Person constructor.
  */
 public class PersonData {
+    private StudentID id;
+    private GitName gitUser;
+    private TeleHandle teleHandle;
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private Set<Tag> tags = new HashSet<>();
     private Set<Attendance> attendances = new HashSet<>();
+
+    public StudentID getId() {
+        return id;
+    }
+
+    public void setId(StudentID id) {
+        this.id = id;
+    }
+
+    public GitName getGitUser() {
+        return gitUser;
+    }
+
+    public void setGitUser(GitName gitName) {
+        this.gitUser = gitName;
+    }
+
+    public TeleHandle getTeleHandle() {
+        return teleHandle;
+    }
+
+    public void setTeleHandle(TeleHandle teleHandle) {
+        this.teleHandle = teleHandle;
+    }
 
     public Name getName() {
         return name;
