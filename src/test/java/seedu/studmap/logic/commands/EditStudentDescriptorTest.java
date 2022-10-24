@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import seedu.studmap.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.studmap.testutil.EditPersonDescriptorBuilder;
 
-public class EditPersonDescriptorTest {
+public class EditStudentDescriptorTest {
 
     @Test
     public void equals() {

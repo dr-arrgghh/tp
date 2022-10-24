@@ -19,18 +19,18 @@ import seedu.studmap.commons.core.index.Index;
 import seedu.studmap.commons.util.CollectionUtil;
 import seedu.studmap.logic.commands.exceptions.CommandException;
 import seedu.studmap.model.Model;
-import seedu.studmap.model.person.*;
+import seedu.studmap.model.student.*;
 import seedu.studmap.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing student in the address book.
  */
 public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the student identified "
+            + "by the index number used in the displayed student list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
@@ -42,16 +42,16 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This student already exists in the address book.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
-     * @param editPersonDescriptor details to edit the person with
+     * @param index of the student in the filtered student list to edit
+     * @param editPersonDescriptor details to edit the student with
      */
     public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
@@ -64,68 +64,68 @@ public class EditCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Student> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToEdit = lastShownList.get(index.getZeroBased());
-        Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+        Student studentToEdit = lastShownList.get(index.getZeroBased());
+        Student editedStudent = createEditedPerson(studentToEdit, editPersonDescriptor);
 
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+        if (!studentToEdit.isSamePerson(editedStudent) && model.hasPerson(editedStudent)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(personToEdit, editedPerson);
+        model.setPerson(studentToEdit, editedStudent);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedStudent));
     }
 
     /**
-     * Edits the person without returning to the full persons list.
+     * Edits the student without returning to the full persons list.
      * @param model {@code Model} which the command should operate on.
      * @return feedback message of the operation result for display.
      * @throws CommandException If an error occurs during command execution.
      */
     public CommandResult executeNoRefresh(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Student> lastShownList = model.getFilteredPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToEdit = lastShownList.get(index.getZeroBased());
-        Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+        Student studentToEdit = lastShownList.get(index.getZeroBased());
+        Student editedStudent = createEditedPerson(studentToEdit, editPersonDescriptor);
 
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+        if (!studentToEdit.isSamePerson(editedStudent) && model.hasPerson(editedStudent)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(personToEdit, editedPerson);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+        model.setPerson(studentToEdit, editedStudent);
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedStudent));
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
+     * Creates and returns a {@code Student} with the details of {@code studentToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
-        assert personToEdit != null;
+    private static Student createEditedPerson(Student studentToEdit, EditPersonDescriptor editPersonDescriptor) {
+        assert studentToEdit != null;
 
-        PersonData personData = new PersonData();
-        personData.setName(editPersonDescriptor.getName().orElse(personToEdit.getName()));
-        personData.setPhone(editPersonDescriptor.getPhone().orElse(personToEdit.getPhone()));
-        personData.setEmail(editPersonDescriptor.getEmail().orElse(personToEdit.getEmail()));
-        personData.setAddress(editPersonDescriptor.getAddress().orElse(personToEdit.getAddress()));
-        personData.setId(editPersonDescriptor.getId().orElse(personToEdit.getId()));
-        personData.setTeleHandle(editPersonDescriptor.getHandle().orElse(personToEdit.getTeleHandle()));
-        personData.setGitUser(editPersonDescriptor.getGitName().orElse(personToEdit.getGitName()));
-        personData.setTags(editPersonDescriptor.getTags().orElse(personToEdit.getTags()));
-        personData.setAttendances(personToEdit.getAttendances());
+        StudentData studentData = new StudentData();
+        studentData.setName(editPersonDescriptor.getName().orElse(studentToEdit.getName()));
+        studentData.setPhone(editPersonDescriptor.getPhone().orElse(studentToEdit.getPhone()));
+        studentData.setEmail(editPersonDescriptor.getEmail().orElse(studentToEdit.getEmail()));
+        studentData.setAddress(editPersonDescriptor.getAddress().orElse(studentToEdit.getAddress()));
+        studentData.setId(editPersonDescriptor.getId().orElse(studentToEdit.getId()));
+        studentData.setTeleHandle(editPersonDescriptor.getHandle().orElse(studentToEdit.getTeleHandle()));
+        studentData.setGitUser(editPersonDescriptor.getGitName().orElse(studentToEdit.getGitName()));
+        studentData.setTags(editPersonDescriptor.getTags().orElse(studentToEdit.getTags()));
+        studentData.setAttendances(studentToEdit.getAttendances());
 
-        return new Person(personData);
+        return new Student(studentData);
     }
 
     @Override
@@ -147,8 +147,8 @@ public class EditCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the person with. Each non-empty field value will replace the
-     * corresponding field value of the person.
+     * Stores the details to edit the student with. Each non-empty field value will replace the
+     * corresponding field value of the student.
      */
     public static class EditPersonDescriptor {
         private Name name;

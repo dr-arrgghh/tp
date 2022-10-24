@@ -8,7 +8,7 @@ import static seedu.studmap.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import org.junit.jupiter.api.Test;
 
 import seedu.studmap.logic.commands.MarkCommand;
-import seedu.studmap.model.person.Attendance;
+import seedu.studmap.model.student.Attendance;
 
 
 

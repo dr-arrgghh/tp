@@ -14,7 +14,7 @@ import seedu.studmap.logic.parser.AddressBookParser;
 import seedu.studmap.logic.parser.exceptions.ParseException;
 import seedu.studmap.model.Model;
 import seedu.studmap.model.ReadOnlyAddressBook;
-import seedu.studmap.model.person.Person;
+import seedu.studmap.model.student.Student;
 import seedu.studmap.storage.Storage;
 
 /**
@@ -60,7 +60,7 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableList<Person> getFilteredPersonList() {
+    public ObservableList<Student> getFilteredPersonList() {
         return model.getFilteredPersonList();
     }
 

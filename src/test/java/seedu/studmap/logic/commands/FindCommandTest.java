@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 import seedu.studmap.model.Model;
 import seedu.studmap.model.ModelManager;
 import seedu.studmap.model.UserPrefs;
-import seedu.studmap.model.person.NameContainsKeywordsPredicate;
+import seedu.studmap.model.student.NameContainsKeywordsPredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
@@ -50,7 +50,7 @@ public class FindCommandTest {
         // null -> returns false
         assertFalse(findFirstCommand.equals(null));
 
-        // different person -> returns false
+        // different student -> returns false
         assertFalse(findFirstCommand.equals(findSecondCommand));
     }
 

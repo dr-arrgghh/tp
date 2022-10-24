@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.studmap.commons.exceptions.IllegalValueException;
-import seedu.studmap.model.person.Address;
-import seedu.studmap.model.person.Email;
-import seedu.studmap.model.person.Name;
-import seedu.studmap.model.person.Phone;
+import seedu.studmap.model.student.Address;
+import seedu.studmap.model.student.Email;
+import seedu.studmap.model.student.Name;
+import seedu.studmap.model.student.Phone;
 
-public class JsonAdaptedPersonTest {
+public class JsonAdaptedStudentTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_PHONE = "+651234";
     //private static final String INVALID_ID = "123123213";

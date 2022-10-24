@@ -9,7 +9,7 @@ import java.util.Set;
 import seedu.studmap.commons.core.index.Index;
 import seedu.studmap.commons.util.StringUtil;
 import seedu.studmap.logic.parser.exceptions.ParseException;
-import seedu.studmap.model.person.*;
+import seedu.studmap.model.student.*;
 import seedu.studmap.model.tag.Tag;
 
 /**

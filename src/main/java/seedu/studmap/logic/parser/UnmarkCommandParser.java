@@ -8,7 +8,7 @@ import seedu.studmap.commons.core.index.Index;
 import seedu.studmap.commons.exceptions.IllegalValueException;
 import seedu.studmap.logic.commands.UnmarkCommand;
 import seedu.studmap.logic.parser.exceptions.ParseException;
-import seedu.studmap.model.person.Attendance;
+import seedu.studmap.model.student.Attendance;
 
 /**
  * Parses input arguments and creates a new UnmarkCommand object

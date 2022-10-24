@@ -1,4 +1,4 @@
-package seedu.studmap.model.person;
+package seedu.studmap.model.student;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,9 +6,9 @@ import java.util.Set;
 import seedu.studmap.model.tag.Tag;
 
 /**
- * A parameter object for Person constructor.
+ * A parameter object for Student constructor.
  */
-public class PersonData {
+public class StudentData {
     private StudentID id;
     private GitName gitUser;
     private TeleHandle teleHandle;

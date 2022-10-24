@@ -1,4 +1,4 @@
-package seedu.studmap.model.person;
+package seedu.studmap.model.student;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.studmap.commons.util.AppUtil.checkArgument;

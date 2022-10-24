@@ -1,4 +1,4 @@
-package seedu.studmap.model.person;
+package seedu.studmap.model.student;
 
 import static seedu.studmap.commons.util.CollectionUtil.requireAllNonNull;
 
@@ -10,10 +10,10 @@ import java.util.Set;
 import seedu.studmap.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Student in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Person {
+public class Student {
 
     // Identity fields
     private final Name name;
@@ -29,26 +29,26 @@ public class Person {
     private final Set<Attendance> attendances = new HashSet<>();
 
     /**
-     * Constructor using a PersonData parameter object.
+     * Constructor using a StudentData parameter object.
      * Requires name, phone, email, address, tags to be non-null.
      *
-     * @param personData PersonData parameter object.
+     * @param studentData StudentData parameter object.
      */
-    public Person(PersonData personData) {
-        requireAllNonNull(personData.getId(), personData.getGitUser(),
-                personData.getTeleHandle(), personData.getName(), personData.getPhone(),
-                personData.getEmail(), personData.getAddress(),
-                personData.getTags(), personData.getAttendances());
+    public Student(StudentData studentData) {
+        requireAllNonNull(studentData.getId(), studentData.getGitUser(),
+                studentData.getTeleHandle(), studentData.getName(), studentData.getPhone(),
+                studentData.getEmail(), studentData.getAddress(),
+                studentData.getTags(), studentData.getAttendances());
 
-        this.id = personData.getId();
-        this.teleHandle = personData.getTeleHandle();
-        this.gitName = personData.getGitUser();
-        this.name = personData.getName();
-        this.phone = personData.getPhone();
-        this.email = personData.getEmail();
-        this.address = personData.getAddress();
-        this.tags.addAll(personData.getTags());
-        this.attendances.addAll(personData.getAttendances());
+        this.id = studentData.getId();
+        this.teleHandle = studentData.getTeleHandle();
+        this.gitName = studentData.getGitUser();
+        this.name = studentData.getName();
+        this.phone = studentData.getPhone();
+        this.email = studentData.getEmail();
+        this.address = studentData.getAddress();
+        this.tags.addAll(studentData.getTags());
+        this.attendances.addAll(studentData.getAttendances());
     }
 
     public StudentID getId() {
@@ -103,12 +103,12 @@ public class Person {
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Person otherPerson) {
-        if (otherPerson == this) {
+    public boolean isSamePerson(Student otherStudent) {
+        if (otherStudent == this) {
             return true;
         }
 
-        return otherPerson != null && otherPerson.getName().equals(getName());
+        return otherStudent != null && otherStudent.getName().equals(getName());
     }
 
     /**
@@ -121,20 +121,20 @@ public class Person {
             return true;
         }
 
-        if (!(other instanceof Person)) {
+        if (!(other instanceof Student)) {
             return false;
         }
 
-        Person otherPerson = (Person) other;
-        return otherPerson.getName().equals(getName())
-                && otherPerson.getId().equals(getId())
-                && otherPerson.getGitName().equals(getGitName())
-                && otherPerson.getTeleHandle().equals(getTeleHandle())
-                && otherPerson.getPhone().equals(getPhone())
-                && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getTags().equals(getTags())
-                && otherPerson.getAttendances().equals(getAttendances());
+        Student otherStudent = (Student) other;
+        return otherStudent.getName().equals(getName())
+                && otherStudent.getId().equals(getId())
+                && otherStudent.getGitName().equals(getGitName())
+                && otherStudent.getTeleHandle().equals(getTeleHandle())
+                && otherStudent.getPhone().equals(getPhone())
+                && otherStudent.getEmail().equals(getEmail())
+                && otherStudent.getAddress().equals(getAddress())
+                && otherStudent.getTags().equals(getTags())
+                && otherStudent.getAttendances().equals(getAttendances());
     }
 
     @Override

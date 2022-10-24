@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studmap.commons.core.Messages;
 import seedu.studmap.model.Model;
-import seedu.studmap.model.person.TagContainsKeywordsPredicate;
+import seedu.studmap.model.student.TagContainsKeywordsPredicate;
 
 
 /**

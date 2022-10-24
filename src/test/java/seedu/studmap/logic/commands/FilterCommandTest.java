@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import seedu.studmap.model.Model;
 import seedu.studmap.model.ModelManager;
 import seedu.studmap.model.UserPrefs;
-import seedu.studmap.model.person.TagContainsKeywordsPredicate;
+import seedu.studmap.model.student.TagContainsKeywordsPredicate;
 
 
 public class FilterCommandTest {

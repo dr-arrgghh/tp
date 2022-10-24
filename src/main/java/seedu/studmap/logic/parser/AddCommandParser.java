@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 
 import seedu.studmap.logic.commands.AddCommand;
 import seedu.studmap.logic.parser.exceptions.ParseException;
-import seedu.studmap.model.person.Person;
-import seedu.studmap.model.person.PersonData;
+import seedu.studmap.model.student.Student;
+import seedu.studmap.model.student.StudentData;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -40,20 +40,20 @@ public class AddCommandParser implements Parser<AddCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
-        PersonData personData = new PersonData();
+        StudentData studentData = new StudentData();
         
-        personData.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
-        personData.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
-        personData.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
-        personData.setId(ParserUtil.parseId(argMultimap.getValue(PREFIX_ID).get()));
-        personData.setGitUser(ParserUtil.parseGitName(argMultimap.getValue(PREFIX_GIT).get()));
-        personData.setTeleHandle(ParserUtil.parseHandle(argMultimap.getValue(PREFIX_HANDLE).get()));
-        personData.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
-        personData.setTags(ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG)));
+        studentData.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
+        studentData.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
+        studentData.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
+        studentData.setId(ParserUtil.parseId(argMultimap.getValue(PREFIX_ID).get()));
+        studentData.setGitUser(ParserUtil.parseGitName(argMultimap.getValue(PREFIX_GIT).get()));
+        studentData.setTeleHandle(ParserUtil.parseHandle(argMultimap.getValue(PREFIX_HANDLE).get()));
+        studentData.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
+        studentData.setTags(ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG)));
 
-        Person person = new Person(personData);
+        Student student = new Student(studentData);
 
-        return new AddCommand(person);
+        return new AddCommand(student);
     }
 
 }

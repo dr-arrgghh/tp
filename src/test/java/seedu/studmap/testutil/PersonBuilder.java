@@ -3,12 +3,12 @@ package seedu.studmap.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.studmap.model.person.*;
+import seedu.studmap.model.student.*;
 import seedu.studmap.model.tag.Tag;
 import seedu.studmap.model.util.SampleDataUtil;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Student objects.
  */
 public class PersonBuilder {
 
@@ -46,22 +46,22 @@ public class PersonBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code personToCopy}.
+     * Initializes the PersonBuilder with the data of {@code studentToCopy}.
      */
-    public PersonBuilder(Person personToCopy) {
-        name = personToCopy.getName();
-        phone = personToCopy.getPhone();
-        email = personToCopy.getEmail();
-        address = personToCopy.getAddress();
-        id = personToCopy.getId();
-        gitName = personToCopy.getGitName();
-        teleHandle = personToCopy.getTeleHandle();
-        tags = new HashSet<>(personToCopy.getTags());
-        attendances = new HashSet<>(personToCopy.getAttendances());
+    public PersonBuilder(Student studentToCopy) {
+        name = studentToCopy.getName();
+        phone = studentToCopy.getPhone();
+        email = studentToCopy.getEmail();
+        address = studentToCopy.getAddress();
+        id = studentToCopy.getId();
+        gitName = studentToCopy.getGitName();
+        teleHandle = studentToCopy.getTeleHandle();
+        tags = new HashSet<>(studentToCopy.getTags());
+        attendances = new HashSet<>(studentToCopy.getAttendances());
     }
 
     /**
-     * Sets the {@code Name} of the {@code Person} that we are building.
+     * Sets the {@code Name} of the {@code Student} that we are building.
      */
     public PersonBuilder withName(String name) {
         this.name = new Name(name);
@@ -69,7 +69,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Student} that we are building.
      */
     public PersonBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
@@ -78,7 +78,7 @@ public class PersonBuilder {
 
     /**
      * Parses the {@code classNames} which the user has attended into a
-     * {@code Set<Attendance>} and adds it to the {@code Person} that we are building.
+     * {@code Set<Attendance>} and adds it to the {@code Student} that we are building.
      */
     public PersonBuilder addAttended(String ... classNames) {
         this.attendances.addAll(SampleDataUtil.getAttendedSet(classNames));
@@ -87,7 +87,7 @@ public class PersonBuilder {
 
     /**
      * Parses the {@code classNames} which the user has attended into a
-     * {@code Set<Attendance>} and adds it to the {@code Person} that we are building.
+     * {@code Set<Attendance>} and adds it to the {@code Student} that we are building.
      */
     public PersonBuilder addNotAttended(String ... classNames) {
         this.attendances.addAll(SampleDataUtil.getNotAttendedSet(classNames));
@@ -100,7 +100,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code Person} that we are building.
+     * Sets the {@code Address} of the {@code Student} that we are building.
      */
     public PersonBuilder withAddress(String address) {
         this.address = new Address(address);
@@ -108,7 +108,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code Person} that we are building.
+     * Sets the {@code Phone} of the {@code Student} that we are building.
      */
     public PersonBuilder withPhone(String phone) {
         this.phone = new Phone(phone);
@@ -116,7 +116,7 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Email} of the {@code Person} that we are building.
+     * Sets the {@code Email} of the {@code Student} that we are building.
      */
     public PersonBuilder withEmail(String email) {
         this.email = new Email(email);
@@ -139,21 +139,21 @@ public class PersonBuilder {
     }
 
     /**
-     * Builds the person using the given parameters.
-     * @return New Person.
+     * Builds the student using the given parameters.
+     * @return New Student.
      */
-    public Person build() {
-        PersonData personData = new PersonData();
-        personData.setName(this.name);
-        personData.setPhone(this.phone);
-        personData.setEmail(this.email);
-        personData.setAddress(this.address);
-        personData.setId(this.id);
-        personData.setGitUser(this.gitName);
-        personData.setTeleHandle(this.teleHandle);
-        personData.setTags(this.tags);
-        personData.setAttendances(this.attendances);
-        return new Person(personData);
+    public Student build() {
+        StudentData studentData = new StudentData();
+        studentData.setName(this.name);
+        studentData.setPhone(this.phone);
+        studentData.setEmail(this.email);
+        studentData.setAddress(this.address);
+        studentData.setId(this.id);
+        studentData.setGitUser(this.gitName);
+        studentData.setTeleHandle(this.teleHandle);
+        studentData.setTags(this.tags);
+        studentData.setAttendances(this.attendances);
+        return new Student(studentData);
     }
 
 }

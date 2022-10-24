@@ -4,36 +4,36 @@ import java.util.Set;
 
 import seedu.studmap.logic.commands.AddCommand;
 import seedu.studmap.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.studmap.model.person.Person;
+import seedu.studmap.model.student.Student;
 import seedu.studmap.model.tag.Tag;
 
 import static seedu.studmap.logic.parser.CliSyntax.*;
 
 /**
- * A utility class for Person.
+ * A utility class for Student.
  */
 public class PersonUtil {
 
     /**
-     * Returns an add command string for adding the {@code person}.
+     * Returns an add command string for adding the {@code student}.
      */
-    public static String getAddCommand(Person person) {
-        return AddCommand.COMMAND_WORD + " " + getPersonDetails(person);
+    public static String getAddCommand(Student student) {
+        return AddCommand.COMMAND_WORD + " " + getPersonDetails(student);
     }
 
     /**
-     * Returns the part of command string for the given {@code person}'s details.
+     * Returns the part of command string for the given {@code student}'s details.
      */
-    public static String getPersonDetails(Person person) {
+    public static String getPersonDetails(Student student) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_NAME + person.getName().fullName + " ");
-        sb.append(PREFIX_PHONE + person.getPhone().value + " ");
-        sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
-        sb.append(PREFIX_ID + person.getId().value + " ");
-        sb.append(PREFIX_GIT + person.getGitName().value + " ");
-        sb.append(PREFIX_HANDLE + person.getTeleHandle().value + " ");
-        sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
-        person.getTags().stream().forEach(
+        sb.append(PREFIX_NAME + student.getName().fullName + " ");
+        sb.append(PREFIX_PHONE + student.getPhone().value + " ");
+        sb.append(PREFIX_EMAIL + student.getEmail().value + " ");
+        sb.append(PREFIX_ID + student.getId().value + " ");
+        sb.append(PREFIX_GIT + student.getGitName().value + " ");
+        sb.append(PREFIX_HANDLE + student.getTeleHandle().value + " ");
+        sb.append(PREFIX_ADDRESS + student.getAddress().value + " ");
+        student.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
         return sb.toString();

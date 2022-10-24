@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import seedu.studmap.logic.commands.FindCommand;
 import seedu.studmap.logic.parser.exceptions.ParseException;
-import seedu.studmap.model.person.NameContainsKeywordsPredicate;
+import seedu.studmap.model.student.NameContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FindCommand object

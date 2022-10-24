@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import seedu.studmap.logic.commands.FilterCommand;
 import seedu.studmap.logic.parser.exceptions.ParseException;
-import seedu.studmap.model.person.TagContainsKeywordsPredicate;
+import seedu.studmap.model.student.TagContainsKeywordsPredicate;
 
 
 /**

@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.studmap.commons.core.Messages;
 import seedu.studmap.model.Model;
-import seedu.studmap.model.person.NameContainsKeywordsPredicate;
+import seedu.studmap.model.student.NameContainsKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.

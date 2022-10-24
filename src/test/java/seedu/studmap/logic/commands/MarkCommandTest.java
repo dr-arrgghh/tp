@@ -13,8 +13,8 @@ import seedu.studmap.commons.core.index.Index;
 import seedu.studmap.model.Model;
 import seedu.studmap.model.ModelManager;
 import seedu.studmap.model.UserPrefs;
-import seedu.studmap.model.person.Attendance;
-import seedu.studmap.model.person.Person;
+import seedu.studmap.model.student.Attendance;
+import seedu.studmap.model.student.Student;
 import seedu.studmap.testutil.PersonBuilder;
 
 
@@ -28,17 +28,17 @@ class MarkCommandTest {
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Person personToMark = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Student studentToMark = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         Attendance attendance = new Attendance("T04", true);
         MarkCommand markCommand = new MarkCommand(INDEX_FIRST_PERSON, attendance);
 
-        Person markedPerson = new PersonBuilder(personToMark).addAttended("T04").build();
+        Student markedStudent = new PersonBuilder(studentToMark).addAttended("T04").build();
 
         String expectedMessage = String.format(MarkCommand.MESSAGE_MARK_SUCCESS,
-                attendance.getAttendance(), markedPerson);
+                attendance.getAttendance(), markedStudent);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredPersonList().get(0), markedPerson);
+        expectedModel.setPerson(model.getFilteredPersonList().get(0), markedStudent);
         assertCommandSuccess(markCommand, model, expectedMessage, expectedModel);
     }
 
@@ -46,17 +46,17 @@ class MarkCommandTest {
     public void execute_filteredList_success() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
-        Person personInFilteredList = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Student studentInFilteredList = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         Attendance attendance = new Attendance("T04", true);
         MarkCommand markCommand = new MarkCommand(INDEX_FIRST_PERSON, attendance);
 
-        Person markedPerson = new PersonBuilder(personInFilteredList).addAttended("T04").build();
+        Student markedStudent = new PersonBuilder(studentInFilteredList).addAttended("T04").build();
 
         String expectedMessage = String.format(MarkCommand.MESSAGE_MARK_SUCCESS,
-                attendance.getAttendance(), markedPerson);
+                attendance.getAttendance(), markedStudent);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredPersonList().get(0), markedPerson);
+        expectedModel.setPerson(model.getFilteredPersonList().get(0), markedStudent);
         assertCommandSuccess(markCommand, model, expectedMessage, expectedModel);
     }
 

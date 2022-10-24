@@ -10,15 +10,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.studmap.commons.exceptions.IllegalValueException;
-import seedu.studmap.model.person.*;
+import seedu.studmap.model.student.*;
 import seedu.studmap.model.tag.Tag;
 
 /**
- * Jackson-friendly version of {@link Person}.
+ * Jackson-friendly version of {@link Student}.
  */
 class JsonAdaptedPerson {
 
-    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Person's %s field is missing!";
+    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Student's %s field is missing!";
 
     private final String name;
     private final String phone;
@@ -31,7 +31,7 @@ class JsonAdaptedPerson {
     private final List<JsonAdaptedAttendance> attended = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given person details.
+     * Constructs a {@code JsonAdaptedPerson} with the given student details.
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
@@ -56,9 +56,9 @@ class JsonAdaptedPerson {
     }
 
     /**
-     * Converts a given {@code Person} into this class for Jackson use.
+     * Converts a given {@code Student} into this class for Jackson use.
      */
-    public JsonAdaptedPerson(Person source) {
+    public JsonAdaptedPerson(Student source) {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -75,11 +75,11 @@ class JsonAdaptedPerson {
     }
 
     /**
-     * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
+     * Converts this Jackson-friendly adapted student object into the model's {@code Student} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted person.
+     * @throws IllegalValueException if there were any data constraints violated in the adapted student.
      */
-    public Person toModelType() throws IllegalValueException {
+    public Student toModelType() throws IllegalValueException {
         final List<Tag> personTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tagged) {
             personTags.add(tag.toModelType());
@@ -152,17 +152,17 @@ class JsonAdaptedPerson {
         final Set<Tag> modelTags = new HashSet<>(personTags);
         final Set<Attendance> modelAttendances = new HashSet<>(personAttendances);
 
-        PersonData personData = new PersonData();
-        personData.setName(modelName);
-        personData.setPhone(modelPhone);
-        personData.setEmail(modelEmail);
-        personData.setId(modelId);
-        personData.setGitUser(modelGit);
-        personData.setTeleHandle(modelHandle);
-        personData.setAddress(modelAddress);
-        personData.setTags(modelTags);
-        personData.setAttendances(modelAttendances);
-        return new Person(personData);
+        StudentData studentData = new StudentData();
+        studentData.setName(modelName);
+        studentData.setPhone(modelPhone);
+        studentData.setEmail(modelEmail);
+        studentData.setId(modelId);
+        studentData.setGitUser(modelGit);
+        studentData.setTeleHandle(modelHandle);
+        studentData.setAddress(modelAddress);
+        studentData.setTags(modelTags);
+        studentData.setAttendances(modelAttendances);
+        return new Student(studentData);
     }
 
 }

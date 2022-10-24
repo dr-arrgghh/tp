@@ -8,7 +8,7 @@ import seedu.studmap.logic.commands.CommandResult;
 import seedu.studmap.logic.commands.exceptions.CommandException;
 import seedu.studmap.logic.parser.exceptions.ParseException;
 import seedu.studmap.model.ReadOnlyAddressBook;
-import seedu.studmap.model.person.Person;
+import seedu.studmap.model.student.Student;
 
 /**
  * API of the Logic component
@@ -31,7 +31,7 @@ public interface Logic {
     ReadOnlyAddressBook getAddressBook();
 
     /** Returns an unmodifiable view of the filtered list of persons */
-    ObservableList<Person> getFilteredPersonList();
+    ObservableList<Student> getFilteredPersonList();
 
     /**
      * Returns the user prefs' address book file path.

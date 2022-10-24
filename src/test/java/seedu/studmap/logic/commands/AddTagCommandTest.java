@@ -24,7 +24,7 @@ import seedu.studmap.model.AddressBook;
 import seedu.studmap.model.Model;
 import seedu.studmap.model.ModelManager;
 import seedu.studmap.model.UserPrefs;
-import seedu.studmap.model.person.Person;
+import seedu.studmap.model.student.Student;
 import seedu.studmap.model.tag.Tag;
 import seedu.studmap.testutil.PersonBuilder;
 
@@ -44,22 +44,22 @@ public class AddTagCommandTest {
     @Test
     public void execute_addSingleTagUnfilteredList_success() {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
-        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+        Student lastStudent = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
-        PersonBuilder personInList = new PersonBuilder(lastPerson);
-        Person editedPersonBase = personInList.withTags(VALID_TAG_HUSBAND).build();
-        Person editedPersonExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+        PersonBuilder personInList = new PersonBuilder(lastStudent);
+        Student editedStudentBase = personInList.withTags(VALID_TAG_HUSBAND).build();
+        Student editedStudentExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        baseModel.setPerson(lastPerson, editedPersonBase);
+        baseModel.setPerson(lastStudent, editedStudentBase);
         AddTagCommand addTagCommand = new AddTagCommand(indexLastPerson, singleTagSet);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(lastPerson, editedPersonExpected);
+        expectedModel.setPerson(lastStudent, editedStudentExpected);
         String expectedMessage = String.format(
                 AddTagCommand.MESSAGE_SINGLE_ADD_TAGS_SUCCESS,
                 AddTagCommand.tagSetToSting(singleTagSet),
-                editedPersonBase.getName());
+                editedStudentBase.getName());
 
         assertCommandSuccess(addTagCommand, baseModel, expectedMessage, expectedModel);
     }
@@ -67,23 +67,23 @@ public class AddTagCommandTest {
     @Test
     public void execute_addMultiTagUnfilteredList_success() {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
-        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+        Student lastStudent = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
-        PersonBuilder personInList = new PersonBuilder(lastPerson);
-        Person editedPersonBase = personInList.withTags(VALID_TAG_HUSBAND).build();
-        Person editedPersonExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND, VALID_TAG_STUDENT)
+        PersonBuilder personInList = new PersonBuilder(lastStudent);
+        Student editedStudentBase = personInList.withTags(VALID_TAG_HUSBAND).build();
+        Student editedStudentExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND, VALID_TAG_STUDENT)
                 .build();
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        baseModel.setPerson(lastPerson, editedPersonBase);
+        baseModel.setPerson(lastStudent, editedStudentBase);
         AddTagCommand addTagCommand = new AddTagCommand(indexLastPerson, multiTagSet);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(lastPerson, editedPersonExpected);
+        expectedModel.setPerson(lastStudent, editedStudentExpected);
         String expectedMessage = String.format(
                 AddTagCommand.MESSAGE_SINGLE_ADD_TAGS_SUCCESS,
                 AddTagCommand.tagSetToSting(multiTagSet),
-                editedPersonBase.getName());
+                editedStudentBase.getName());
 
         assertCommandSuccess(addTagCommand, baseModel, expectedMessage, expectedModel);
     }
@@ -91,8 +91,8 @@ public class AddTagCommandTest {
     @Test
     public void execute_addSingleTagAllUnfilteredList_success() {
         PersonBuilder personInList;
-        Person editedPersonBase;
-        Person editedPersonExpected;
+        Student editedStudentBase;
+        Student editedStudentExpected;
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -102,12 +102,12 @@ public class AddTagCommandTest {
                 AddTagCommand.tagSetToSting(singleTagSet),
                 model.getFilteredPersonList().size());
 
-        for (Person person : model.getFilteredPersonList()) {
-            personInList = new PersonBuilder(person);
-            editedPersonBase = personInList.withTags(VALID_TAG_HUSBAND).build();
-            baseModel.setPerson(person, editedPersonBase);
-            editedPersonExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
-            expectedModel.setPerson(person, editedPersonExpected);
+        for (Student student : model.getFilteredPersonList()) {
+            personInList = new PersonBuilder(student);
+            editedStudentBase = personInList.withTags(VALID_TAG_HUSBAND).build();
+            baseModel.setPerson(student, editedStudentBase);
+            editedStudentExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+            expectedModel.setPerson(student, editedStudentExpected);
         }
 
         AddTagCommand addTagCommand = new AddTagCommand(singleTagSet);
@@ -117,8 +117,8 @@ public class AddTagCommandTest {
     @Test
     public void execute_addMultiTagAllUnfilteredList_success() {
         PersonBuilder personInList;
-        Person editedPersonBase;
-        Person editedPersonExpected;
+        Student editedStudentBase;
+        Student editedStudentExpected;
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -128,13 +128,13 @@ public class AddTagCommandTest {
                 AddTagCommand.tagSetToSting(multiTagSet),
                 model.getFilteredPersonList().size());
 
-        for (Person person : model.getFilteredPersonList()) {
-            personInList = new PersonBuilder(person);
-            editedPersonBase = personInList.withTags(VALID_TAG_HUSBAND).build();
-            baseModel.setPerson(person, editedPersonBase);
-            editedPersonExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND, VALID_TAG_STUDENT)
+        for (Student student : model.getFilteredPersonList()) {
+            personInList = new PersonBuilder(student);
+            editedStudentBase = personInList.withTags(VALID_TAG_HUSBAND).build();
+            baseModel.setPerson(student, editedStudentBase);
+            editedStudentExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND, VALID_TAG_STUDENT)
                     .build();
-            expectedModel.setPerson(person, editedPersonExpected);
+            expectedModel.setPerson(student, editedStudentExpected);
         }
 
         AddTagCommand addTagCommand = new AddTagCommand(multiTagSet);
@@ -144,22 +144,22 @@ public class AddTagCommandTest {
     @Test
     public void execute_addDuplicateTagUnfilteredList_success() {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
-        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+        Student lastStudent = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
-        PersonBuilder personInList = new PersonBuilder(lastPerson);
-        Person editedPersonBase = personInList.withTags(VALID_TAG_FRIEND).build();
-        Person editedPersonModel = personInList.withTags(VALID_TAG_FRIEND, VALID_TAG_STUDENT).build();
+        PersonBuilder personInList = new PersonBuilder(lastStudent);
+        Student editedStudentBase = personInList.withTags(VALID_TAG_FRIEND).build();
+        Student editedStudentModel = personInList.withTags(VALID_TAG_FRIEND, VALID_TAG_STUDENT).build();
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        baseModel.setPerson(lastPerson, editedPersonBase);
+        baseModel.setPerson(lastStudent, editedStudentBase);
         AddTagCommand addTagCommand = new AddTagCommand(indexLastPerson, multiTagSet);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(lastPerson, editedPersonModel);
+        expectedModel.setPerson(lastStudent, editedStudentModel);
         String expectedMessage = String.format(
                 AddTagCommand.MESSAGE_SINGLE_ADD_TAGS_SUCCESS,
                 AddTagCommand.tagSetToSting(multiTagSet),
-                editedPersonBase.getName());
+                editedStudentBase.getName());
 
         assertCommandSuccess(addTagCommand, baseModel, expectedMessage, expectedModel);
     }
@@ -167,22 +167,22 @@ public class AddTagCommandTest {
     @Test
     public void execute_addToNewSingleTagUnfilteredList_success() {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
-        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+        Student lastStudent = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
-        PersonBuilder personInList = new PersonBuilder(lastPerson);
-        Person editedPersonBase = personInList.withTags().build();
-        Person editedPersonModel = personInList.withTags(VALID_TAG_FRIEND).build();
+        PersonBuilder personInList = new PersonBuilder(lastStudent);
+        Student editedStudentBase = personInList.withTags().build();
+        Student editedStudentModel = personInList.withTags(VALID_TAG_FRIEND).build();
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        baseModel.setPerson(lastPerson, editedPersonBase);
+        baseModel.setPerson(lastStudent, editedStudentBase);
         AddTagCommand addTagCommand = new AddTagCommand(indexLastPerson, singleTagSet);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(lastPerson, editedPersonModel);
+        expectedModel.setPerson(lastStudent, editedStudentModel);
         String expectedMessage = String.format(
                 AddTagCommand.MESSAGE_SINGLE_ADD_TAGS_SUCCESS,
                 AddTagCommand.tagSetToSting(singleTagSet),
-                editedPersonBase.getName());
+                editedStudentBase.getName());
 
         assertCommandSuccess(addTagCommand, baseModel, expectedMessage, expectedModel);
     }
@@ -191,8 +191,8 @@ public class AddTagCommandTest {
     public void execute_addSingleTagAllFilteredList_success() {
         showPersonAtIndex(model, INDEX_SECOND_PERSON);
         PersonBuilder personInList;
-        Person editedPersonBase;
-        Person editedPersonExpected;
+        Student editedStudentBase;
+        Student editedStudentExpected;
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -202,12 +202,12 @@ public class AddTagCommandTest {
                 AddTagCommand.tagSetToSting(singleTagSet),
                 model.getFilteredPersonList().size());
 
-        for (Person person : model.getFilteredPersonList()) {
-            personInList = new PersonBuilder(person);
-            editedPersonBase = personInList.withTags(VALID_TAG_HUSBAND).build();
-            baseModel.setPerson(person, editedPersonBase);
-            editedPersonExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
-            expectedModel.setPerson(person, editedPersonExpected);
+        for (Student student : model.getFilteredPersonList()) {
+            personInList = new PersonBuilder(student);
+            editedStudentBase = personInList.withTags(VALID_TAG_HUSBAND).build();
+            baseModel.setPerson(student, editedStudentBase);
+            editedStudentExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+            expectedModel.setPerson(student, editedStudentExpected);
         }
 
         showPersonAtIndex(baseModel, INDEX_SECOND_PERSON);
@@ -219,21 +219,21 @@ public class AddTagCommandTest {
     public void execute_addMultiTagFilteredList_success() {
         showPersonAtIndex(model, INDEX_SECOND_PERSON);
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
-        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+        Student lastStudent = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
-        PersonBuilder personInList = new PersonBuilder(lastPerson);
-        Person editedPersonBase = personInList.withTags(VALID_TAG_HUSBAND).build();
-        Person editedPersonExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+        PersonBuilder personInList = new PersonBuilder(lastStudent);
+        Student editedStudentBase = personInList.withTags(VALID_TAG_HUSBAND).build();
+        Student editedStudentExpected = personInList.withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
 
         Model baseModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        baseModel.setPerson(lastPerson, editedPersonBase);
+        baseModel.setPerson(lastStudent, editedStudentBase);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(lastPerson, editedPersonExpected);
+        expectedModel.setPerson(lastStudent, editedStudentExpected);
         String expectedMessage = String.format(
                 AddTagCommand.MESSAGE_SINGLE_ADD_TAGS_SUCCESS,
                 AddTagCommand.tagSetToSting(singleTagSet),
-                editedPersonBase.getName());
+                editedStudentBase.getName());
 
         showPersonAtIndex(baseModel, INDEX_SECOND_PERSON);
         AddTagCommand addTagCommand = new AddTagCommand(indexLastPerson, singleTagSet);

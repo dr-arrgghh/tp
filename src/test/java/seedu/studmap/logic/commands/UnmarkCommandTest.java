@@ -17,8 +17,8 @@ import seedu.studmap.commons.core.index.Index;
 import seedu.studmap.model.Model;
 import seedu.studmap.model.ModelManager;
 import seedu.studmap.model.UserPrefs;
-import seedu.studmap.model.person.Attendance;
-import seedu.studmap.model.person.Person;
+import seedu.studmap.model.student.Attendance;
+import seedu.studmap.model.student.Student;
 import seedu.studmap.testutil.PersonBuilder;
 
 /**
@@ -31,19 +31,19 @@ class UnmarkCommandTest {
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Person personToUnmark = model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
+        Student studentToUnmark = model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
         Attendance attendance = new Attendance("T01", true);
         UnmarkCommand unmarkCommand = new UnmarkCommand(INDEX_SECOND_PERSON, attendance);
 
-        Set<Attendance> attendanceSet = new HashSet<>(personToUnmark.getAttendances());
+        Set<Attendance> attendanceSet = new HashSet<>(studentToUnmark.getAttendances());
         attendanceSet.remove(attendance);
-        Person unmarkedPerson = new PersonBuilder(personToUnmark).setAttended(attendanceSet).build();
+        Student unmarkedStudent = new PersonBuilder(studentToUnmark).setAttended(attendanceSet).build();
 
         String expectedMessage = String.format(UnmarkCommand.MESSAGE_UNMARK_SUCCESS,
-                attendance.className, unmarkedPerson);
+                attendance.className, unmarkedStudent);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased()), unmarkedPerson);
+        expectedModel.setPerson(model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased()), unmarkedStudent);
         assertCommandSuccess(unmarkCommand, model, expectedMessage, expectedModel);
     }
 
@@ -51,19 +51,19 @@ class UnmarkCommandTest {
     public void execute_filteredList_success() {
         showPersonAtIndex(model, INDEX_SECOND_PERSON);
 
-        Person personInFilteredList = model.getFilteredPersonList().get(0);
+        Student studentInFilteredList = model.getFilteredPersonList().get(0);
         Attendance attendance = new Attendance("T01", true);
         UnmarkCommand unmarkCommand = new UnmarkCommand(INDEX_FIRST_PERSON, attendance);
 
-        Set<Attendance> attendanceSet = new HashSet<>(personInFilteredList.getAttendances());
+        Set<Attendance> attendanceSet = new HashSet<>(studentInFilteredList.getAttendances());
         attendanceSet.remove(attendance);
-        Person unmarkedPerson = new PersonBuilder(personInFilteredList).setAttended(attendanceSet).build();
+        Student unmarkedStudent = new PersonBuilder(studentInFilteredList).setAttended(attendanceSet).build();
 
         String expectedMessage = String.format(UnmarkCommand.MESSAGE_UNMARK_SUCCESS,
-                attendance.className, unmarkedPerson);
+                attendance.className, unmarkedStudent);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.setPerson(model.getFilteredPersonList().get(0), unmarkedPerson);
+        expectedModel.setPerson(model.getFilteredPersonList().get(0), unmarkedStudent);
         assertCommandSuccess(unmarkCommand, model, expectedMessage, expectedModel);
     }
 

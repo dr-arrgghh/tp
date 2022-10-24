@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import seedu.studmap.commons.exceptions.IllegalValueException;
-import seedu.studmap.model.person.Attendance;
+import seedu.studmap.model.student.Attendance;
 
 /**
  * Jackson-friendly version of {@link Attendance}.
