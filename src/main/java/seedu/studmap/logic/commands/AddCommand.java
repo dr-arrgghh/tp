@@ -1,11 +1,7 @@
 package seedu.studmap.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.studmap.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.studmap.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.studmap.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.studmap.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.studmap.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.studmap.logic.parser.CliSyntax.*;
 
 import seedu.studmap.logic.commands.exceptions.CommandException;
 import seedu.studmap.model.Model;
@@ -29,6 +25,9 @@ public class AddCommand extends Command {
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
+            + PREFIX_ID + "A1234567A "
+            + PREFIX_GIT + "user1 "
+            + PREFIX_HANDLE + "@user1 "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
