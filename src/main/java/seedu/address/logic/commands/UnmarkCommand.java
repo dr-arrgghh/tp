@@ -60,6 +60,9 @@ public class UnmarkCommand extends Command {
         personData.setName(personToEdit.getName());
         personData.setPhone(personToEdit.getPhone());
         personData.setEmail(personToEdit.getEmail());
+        personData.setId(personToEdit.getId());
+        personData.setGitUser(personToEdit.getGitName());
+        personData.setTeleHandle(personToEdit.getTeleHandle());
         personData.setAddress(personToEdit.getAddress());
         personData.setTags(personToEdit.getTags());
 
