@@ -1,5 +1,8 @@
 package seedu.studmap.logic.parser;
 
+/**
+ * Contains Invalid Command Line Interface (CLI) syntax definitions common to multiple commands
+ */
 public class InvalidCliSyntax {
     public static final Prefix Invalid_Prefix_B = new Prefix("b/");
     public static final Prefix Invalid_Prefix_D = new Prefix("d/");
