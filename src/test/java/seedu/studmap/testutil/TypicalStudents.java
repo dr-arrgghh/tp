@@ -50,21 +50,21 @@ public class TypicalStudents {
             .withTeleHandle("@user4").withTags("friends")
             .addParticipated("P01")
             .addNotParticipated("P02").build();
-    public static final Student ELLE = new StudentBuilder().withName("Elle Meyer").withPhone("9482224")
+    public static final Student ELLE = new StudentBuilder().withName("Elle Meyer").withPhone("94822242")
             .withEmail("werner@example.com").withModule("CS2103T").withId("E1234565").withGitName("user5")
             .withTeleHandle("@user5").build();
-    public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz").withPhone("9482427")
+    public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz").withPhone("94824272")
             .withEmail("lydia@example.com").withModule("CS2103T").withId("E1234566").withGitName("user6")
             .withTeleHandle("@user6").build();
-    public static final Student GEORGE = new StudentBuilder().withName("George Best").withPhone("9482442")
+    public static final Student GEORGE = new StudentBuilder().withName("George Best").withPhone("94824422")
             .withEmail("anna@example.com").withModule("CS2103T").withId("E1234567").withGitName("user7")
             .withTeleHandle("@user7").build();
 
     // Manually added
-    public static final Student HOON = new StudentBuilder().withName("Hoon Meier").withPhone("8482424")
+    public static final Student HOON = new StudentBuilder().withName("Hoon Meier").withPhone("84824242")
             .withEmail("stefan@example.com").withModule("CS2103T").withId("E1234568").withGitName("user8")
             .withTeleHandle("@user8").build();
-    public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("8482131")
+    public static final Student IDA = new StudentBuilder().withName("Ida Mueller").withPhone("84821312")
             .withEmail("hans@example.com").withModule("CS2103T").withId("E1234569").withGitName("user9")
             .withTeleHandle("@user9").build();
 
