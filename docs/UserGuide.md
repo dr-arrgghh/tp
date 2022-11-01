@@ -26,14 +26,22 @@ tasks done faster than traditional GUI apps.
    open the help window.<br>
    Some example commands you can try:
 
-    * **`list`** : Lists all students.
+    * **`list`** : Lists all students.<br>
+   
+    ![ui](images/ListUI.png)
 
     * **`add`**`n/John Doe m/CS2103T s/E1234567` : <br> Adds a student
-      named `John Doe` to the StudMap.
+      named `John Doe` to the StudMap.<br>
+   
+    ![ui](images/AddJohnDoeUI.png)
 
-    * **`delete`**`3` : Deletes the 3rd student shown in the current list.
+    * **`delete`**`3` : Deletes the 3rd student shown in the current list.<br>
+   
+    ![ui](images/Delete3UI.png)
 
-    * **`clear`** : Deletes all students.
+    * **`clear`** : Deletes all students.<br>
+   
+    ![ui](images/ClearUI.png)
 
     * **`exit`** : Exits the app.
 
@@ -178,7 +186,9 @@ Examples:
 
 Clears all entries from the StudMap.
 
-Format: `clear`
+Format: `clear`<br>
+
+![ui](images/ClearUI.png)
 
 ### Exiting the program : `exit`
 
