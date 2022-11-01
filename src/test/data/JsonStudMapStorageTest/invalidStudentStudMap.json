@@ -1,7 +1,7 @@
 {
   "students": [ {
     "name": "Student with invalid name field: Ha!ns Mu@ster",
-    "phone": "9482424",
+    "phone": "94824242",
     "email": "hans@example.com",
     "module": "CS2103T",
     "studentID" : "E1234561",

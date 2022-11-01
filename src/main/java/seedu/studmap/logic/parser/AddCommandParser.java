@@ -63,7 +63,7 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_MODULE,
                         PREFIX_ID, PREFIX_GIT, PREFIX_HANDLE, PREFIX_TAG);
         ArgumentMultimap invalidMultiMap =
-                ArgumentTokenizer.tokenize(args, Invalid_Prefix_B, Invalid_Prefix_D, Invalid_Prefix_F, Invalid_Prefix_G,
+                ArgumentTokenizer.tokenize(args, Invalid_Prefix_B, Invalid_Prefix_D, Invalid_Prefix_F,
                         Invalid_Prefix_I, Invalid_Prefix_J, Invalid_Prefix_K, Invalid_Prefix_L, Invalid_Prefix_O,
                         Invalid_Prefix_Q, Invalid_Prefix_R, Invalid_Prefix_U, Invalid_Prefix_V, Invalid_Prefix_W,
                         Invalid_Prefix_X, Invalid_Prefix_Y, Invalid_Prefix_Z);
@@ -72,8 +72,8 @@ public class AddCommandParser implements Parser<AddCommand> {
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         } else if (containInvalidPrefix(
-                invalidMultiMap, Invalid_Prefix_B, Invalid_Prefix_D, Invalid_Prefix_F, Invalid_Prefix_G,
-                Invalid_Prefix_I, Invalid_Prefix_J, Invalid_Prefix_K, Invalid_Prefix_L, Invalid_Prefix_O,
+                invalidMultiMap, Invalid_Prefix_B, Invalid_Prefix_D, Invalid_Prefix_F, Invalid_Prefix_I,
+                Invalid_Prefix_J, Invalid_Prefix_K, Invalid_Prefix_L, Invalid_Prefix_O,
                 Invalid_Prefix_Q, Invalid_Prefix_R, Invalid_Prefix_U, Invalid_Prefix_V, Invalid_Prefix_W,
                 Invalid_Prefix_X, Invalid_Prefix_Y, Invalid_Prefix_Z)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));

@@ -1,7 +1,7 @@
 {
   "students": [ {
     "name": "Hans Muster",
-    "phone": "9482424",
+    "phone": "94824242",
     "email": "invalid@email!3e",
     "module": "CS2103T",
     "studentID" : "E1234561",
