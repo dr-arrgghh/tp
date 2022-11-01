@@ -9,23 +9,22 @@ import static seedu.studmap.logic.parser.CliSyntax.PREFIX_MODULE;
 import static seedu.studmap.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.studmap.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.studmap.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_B;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_D;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_F;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_G;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_I;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_J;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_K;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_L;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_O;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_Q;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_R;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_U;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_V;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_W;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_X;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_Y;
-import static seedu.studmap.logic.parser.InvalidCliSyntax.Invalid_Prefix_Z;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_B;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_D;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_F;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_I;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_J;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_K;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_L;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_O;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_Q;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_R;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_U;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_V;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_W;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_X;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_Y;
+import static seedu.studmap.logic.parser.InvalidCliSyntax.INVALID_PREFIX_Z;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -63,19 +62,19 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_MODULE,
                         PREFIX_ID, PREFIX_GIT, PREFIX_HANDLE, PREFIX_TAG);
         ArgumentMultimap invalidMultiMap =
-                ArgumentTokenizer.tokenize(args, Invalid_Prefix_B, Invalid_Prefix_D, Invalid_Prefix_F,
-                        Invalid_Prefix_I, Invalid_Prefix_J, Invalid_Prefix_K, Invalid_Prefix_L, Invalid_Prefix_O,
-                        Invalid_Prefix_Q, Invalid_Prefix_R, Invalid_Prefix_U, Invalid_Prefix_V, Invalid_Prefix_W,
-                        Invalid_Prefix_X, Invalid_Prefix_Y, Invalid_Prefix_Z);
+                ArgumentTokenizer.tokenize(args, INVALID_PREFIX_B, INVALID_PREFIX_D, INVALID_PREFIX_F,
+                        INVALID_PREFIX_I, INVALID_PREFIX_J, INVALID_PREFIX_K, INVALID_PREFIX_L, INVALID_PREFIX_O,
+                        INVALID_PREFIX_Q, INVALID_PREFIX_R, INVALID_PREFIX_U, INVALID_PREFIX_V, INVALID_PREFIX_W,
+                        INVALID_PREFIX_X, INVALID_PREFIX_Y, INVALID_PREFIX_Z);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_MODULE, PREFIX_ID)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         } else if (containInvalidPrefix(
-                invalidMultiMap, Invalid_Prefix_B, Invalid_Prefix_D, Invalid_Prefix_F, Invalid_Prefix_I,
-                Invalid_Prefix_J, Invalid_Prefix_K, Invalid_Prefix_L, Invalid_Prefix_O,
-                Invalid_Prefix_Q, Invalid_Prefix_R, Invalid_Prefix_U, Invalid_Prefix_V, Invalid_Prefix_W,
-                Invalid_Prefix_X, Invalid_Prefix_Y, Invalid_Prefix_Z)) {
+                invalidMultiMap, INVALID_PREFIX_B, INVALID_PREFIX_D, INVALID_PREFIX_F, INVALID_PREFIX_I,
+                INVALID_PREFIX_J, INVALID_PREFIX_K, INVALID_PREFIX_L, INVALID_PREFIX_O,
+                INVALID_PREFIX_Q, INVALID_PREFIX_R, INVALID_PREFIX_U, INVALID_PREFIX_V, INVALID_PREFIX_W,
+                INVALID_PREFIX_X, INVALID_PREFIX_Y, INVALID_PREFIX_Z)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
