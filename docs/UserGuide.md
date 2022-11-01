@@ -90,15 +90,23 @@ A student can have any number of tags (including 0)
 
 Examples:
 
-* `add n/John Doe m/CS2103T s/E1234567`
-* `add n/Betsy Crowe t/PotentialTA e/betsycrowe@example.com s/E3141592 m/CS2101 p/1234567`
-* `add n/Silos Yao t/StrongStudent g/silosyao s/E1234567 m/MA5203`
+* `add n/John Doe m/CS2103T s/E1234567`<br>
+
+![ui](images/AddJohnDoeUI.png)
+* `add n/Betsy Crowe t/PotentialTA e/betsycrowe@example.com s/E3141592 m/CS2101 p/1234567`<br>
+
+![ui](images/AddBetsyCroweUI.png)
+* `add n/Silos Yao t/StrongStudent g/silosyao s/E1234567 m/MA5203`<br>
+
+![ui](images/AddSilasUI.png)
 
 ### Listing all students : `list`
 
 Shows a list of all students in the StudMap.
 
-Format: `list`
+Format: `list`<br>
+
+![ui](images/ListUI.png)
 
 ### Editing a student : `edit`
 
@@ -117,8 +125,12 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MODULE] [s/ID] [g/GITUSER] [
 Examples:
 
 * `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567`
-  and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+  and `johndoe@example.com` respectively.<br>
+
+![ui](images/EditJohnDoeUI.png)
+* `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.<br>
+
+![ui](images/EditBetsyUI.png)
 
 ### Locating students by name: `find`
 
@@ -135,11 +147,12 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  <!-- TODO: ![result for 'find alex david'](images/findAlexDavidResult.png) -->
-  [Sample UI To be added]
+* `find John` returns `john` and `John Doe`<br>
 
+![ui](images/FindJohnUI.png)
+* `find alex david` returns `Alex Yeoh`, `David Li`<br>
+
+![ui](images/FindAlexDavidUI.png)
 ### Deleting a student : `delete`
 
 Deletes the specified student from the StudMap.
@@ -152,8 +165,14 @@ Format: `delete INDEX`
 
 Examples:
 
-* `list` followed by `delete 2` deletes the 2nd student in the StudMap.
-* `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
+* `list` followed by `delete 2` deletes the 2nd student in the StudMap.<br>
+
+![ui](images/Delete2UI.png)
+* `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.<br>
+
+![ui](images/ListUI.png)<br>
+
+![ui](images/DeleteBetsyUI.png)
 
 ### Clearing all entries : `clear`
 
@@ -200,9 +219,15 @@ Format: `sort ORDER a/ATTRIBUTE`
 
 Examples:
 
-* `sort asc a/name`
-* `sort dsc a/phone`
-* `sort asc a/attendance`
+* `sort asc a/name`<br>
+
+![ui](images/SortNameUI.png)
+* `sort dsc a/phone`<br>
+
+![ui](images/SortPhoneUI.png)
+* `sort asc a/attendance`<br>
+
+![ui](images/SortAttendanceUI.png)
 
 ### Filtering the students: `filter`
 
@@ -217,14 +242,18 @@ with the prefix `t/`
 categories - tags `t/`, module `m/` and assignments `a/`.
 
 Example:
-* `filter t/ friends` will return a filtered list of students
-that are tagged as friends
-* `filter m/ cs2103t` will return a filtered list of students
-that enrolls in the module cs2103t.
-* `filter a/ a01` will return a filtered list of students
-  that are working on assignment A01.
+* `filter t/friends` will return a filtered list of students
+that are tagged as friends.<br>
+![ui](images/FilterFriendsUI.png)
+* `filter m/cs2103t` will return a filtered list of students
+that enrolls in the module cs2103t.<br>
+![ui](images/FilterModuleUI.png)
+* `filter a/a01` will return a filtered list of students
+  that are working on assignment A01.<br>
+![ui](images/FilterAssignmentUI.png)
 * `filter t/friends family` will return a filtered list of
-students that are tagged as friends family or both.
+students that are tagged as friends family or both.<br>
+![ui](images/FilterFamilyAndFriendsUI.png)
  
 
 ### Mark attendance of student: `mark`
