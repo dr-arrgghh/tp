@@ -224,7 +224,7 @@ of the `filter` feature can be summarized via the sequence diagram shown below.
 The implementation of the `execute` method in filter is done within the class `FilterCommand#execute()`.
 The `execute` method will in turn call the `filterPersonListWithPredicate` method of the corresponding
 `ModelManager`. A brief summary of the class structure is illustrated in the class diagram below, using
-`FilterCommand` as an example. 
+`FilterCommand` as an example.
 
 ![Filter Class Diagram](images/diagrams/FilterCommandClassDiagram.png){: diagram}
 
@@ -255,21 +255,20 @@ The flow for `FilterCommand#execute` is as such:
 **Common Behaviours**
 1. Parse certain attribute to filter
 2. Parse certain keyword to filter
-3. Return immediately if attribute is valid and list 
+3. Return immediately if attribute is valid and list
 do not contain keyword
 4. Return immediately if attribute is valid and list
 contain keyword
 5. Exception thrown immediately if attribute is invalid
-    
 
 **Aspect: How filter executes:**
 * **Alternative 1 (current choice):** Update the list of students using ModelManager
-  * Pros: Extension to more classes allowing the program to be conducted with 
+  * Pros: Extension to more classes allowing the program to be conducted with
   more OOP hence providing a more stable structure
   * Cons: It can be a hassle for users to read the code as they will have to take into
   account multiple classes that contributes to the function
 * **Alternative 2:** Update the list of students within FilterCommand
-  * Pros: Increase code readability for users 
+  * Pros: Increase code readability for users
   * Cons: Increase code duplication due to lesser OOP.
 
 

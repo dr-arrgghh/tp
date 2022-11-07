@@ -225,7 +225,7 @@ To learn more about parameters, do check out the section on [Parameters](#52-inf
 
 ### Example Commands
 
-With the power of commands, you can now truly wield StudMap to organize your students and accomplish your TA responsibilities. 
+With the power of commands, you can now truly wield StudMap to organize your students and accomplish your TA responsibilities.
 Commands will allow you to add new students to the list, append assignments to be graded or attendances that have been marked, and so much more!
 
 Let’s try out some commands! Type or copy a command into the Command Box and press Enter to execute it.
@@ -342,7 +342,7 @@ find too restrictive.
 numbers (i.e. Home number) for your student is considered Out of Scope.
 
 * **MODULE:** StudMap is designed as a tool for NUS TAs, and thus StudMap currently only supports the code format 
-for NUS modules. Future plans for StudMap include expanding this format to more universities. 
+for NUS modules. Future plans for StudMap include expanding this format to more universities.
 </div>
 
 ## 5.3 Student List Management

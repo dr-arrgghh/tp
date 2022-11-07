@@ -5,15 +5,15 @@ title: Silas's Project Portfolio Page
 
 ### Project: StudMap
 
-StudMap is a lightweight desktop application that addresses your needs of managing the student 
+StudMap is a lightweight desktop application that addresses your needs of managing the student
 records across multiple spreadsheets. Using a CLI (Command Line Interface) approach, we mitigate
-the need for teaching assistants to navigate through convoluted menus and buttons when keeping 
-track of the administrative details for the students. It is written in Java with the GUI implemented 
+the need for teaching assistants to navigate through convoluted menus and buttons when keeping
+track of the administrative details for the students. It is written in Java with the GUI implemented
 using JavaFX. <br>
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2223s1.github.io/tp-dashboard/?search=comicalromance)
 
-* **New Feature**: 
+* **New Feature**:
 * `mark` and `unmark`<br/>
 Added `mark` and `unmark`, core features for our product usecase, allowing users to manage attendance
 records for their students. This included updating the Jackson serialization to allow pseudo key-pair
